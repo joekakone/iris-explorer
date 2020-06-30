@@ -1,0 +1,1 @@
+web: bokeh serve --allow-websocket-origin=iris-explorer.herokuapp.com --address=0.0.0.0 --use-xheaders dashboard/

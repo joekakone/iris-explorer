@@ -1,2 +1,2 @@
-# iris-explorer
+# Iris Explorer
 Explore Iris Dataset
