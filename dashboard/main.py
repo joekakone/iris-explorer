@@ -12,20 +12,6 @@ from bokeh.models import LinearColorMapper
 from bokeh.transform import transform
 
 
-# loading data
-iris = pd.read_csv('dashboard/data/iris.csv')
-
-# number of features
-axis = list(iris.columns[:4])
-
-# indicators
-indicator1 = iris.shape[0]
-indicator2 = iris.shape[1]
-
-# DataFrame to ColumnDataSource
-source = ColumnDataSource(data=iris)
-
-
 def plot():
     '''function to build the graph'''
 
@@ -102,22 +88,17 @@ def plot():
     return layout
 
 
+# loading data
+iris = pd.read_csv('dashboard/data/iris.csv')
+
+# number of features
+axis = list(iris.columns[:4])
+
+# DataFrame to ColumnDataSource
+source = ColumnDataSource(data=iris)
+
 # build the graph
 curdoc().add_root(plot())
 
-
 # set html page title
 curdoc().title = 'Iris Dataset Explorer'
-
-# add variables
-curdoc().template_variables['indicator_names'] = ['indicator1', 'indicator2']
-curdoc().template_variables['indicators'] = {
-    'indicator1': {
-        'title': 'Total Samples',
-        'value': indicator1
-        },
-    'indicator2': {
-        'title': 'Features',
-        'value': indicator2
-        },
-}
